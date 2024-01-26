@@ -69,6 +69,10 @@ This is a React-based Todo application built using Vite, featuring Firebase inte
    ```bash
    yarn dev
    ```
+4. **The project is deployed on vercel:**
+  ```bash
+  https://redstar-test-todolist-firebase.vercel.app/
+   ```
 
 ## Usage
 
