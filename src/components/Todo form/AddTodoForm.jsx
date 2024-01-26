@@ -1,16 +1,20 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../../redux/todosSlice';
+import { addTodoToFirestore } from '../../firebase/firestore';
 import './AddTodoForm.scss'; // Ensure you have this SCSS file for styling
+
 
 const AddTodoForm = () => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim()) return;
-    dispatch(addTodo({ id: Date.now(), title, completed: false }));
+    const newTodoId = await addTodoToFirestore({ title, completed: false });
+    // Optionally, update Redux store if you are using it alongside Firebase
+    dispatch(addTodo({ id: newTodoId, title, completed: false }));
     setTitle('');
   };
 
