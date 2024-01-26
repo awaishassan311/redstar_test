@@ -19,6 +19,8 @@ const AddTodoForm = () => {
   };
 
   return (
+    <div>
+    <h1 className='todo-tile'>Todo List</h1>
     <form onSubmit={handleSubmit} className="add-todo-form">
       <input 
         type="text" 
@@ -28,6 +30,7 @@ const AddTodoForm = () => {
       />
       <button type="submit">Add Todo</button>
     </form>
+    </div>
   );
 };
 
